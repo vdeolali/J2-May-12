@@ -1,0 +1,35 @@
+package MySchool.TestDrivers;
+import  MySchool.Admissions.*;
+import  MySchool.Departments.ComputerScience.*;
+
+class TestStudent {
+
+    public static void main (String[] args){
+	String[] courses = {"CS101", "CS102"};
+	Student stu = new Student (100, "John", "Smith", courses);
+	Course[] coursesOffered = new Course[3];
+
+	coursesOffered[0] = new Course("CS101", "Introductory Computer Science", 3);
+	coursesOffered[1] = new Course("CS102", "Data Structure\t", 3);
+	coursesOffered[2] = new Course("CS103", "C++ Programming\t", 4);
+
+	System.out.println ("********************************************\n");
+	System.out.println  ("\t\t   Student Report  \t \t \n");
+	System.out.println ("********************************************\n");
+	System.out.println ("Name: " + "\t\t\t" + stu.concatName());
+	System.out.println ("StudentID: " + "\t\t" + stu.getStudentID());
+	System.out.println ("Courses Enrolled:  \n\n");
+	System.out.println ("********************************************\n");
+	System.out.println ("CourseID\t" + "Course Title\t" + "Credit Hrs");
+	System.out.println ("********************************************\n");
+	for (int i = 0; i < stu.getCourseIDsEnrolled().length ; i++){
+	    System.out.print (stu.getCourseIDsEnrolled()[i]+ "\t");
+	    for (int j = 0 ; j < coursesOffered.length; j++){
+		    if (coursesOffered[j].getCourseId().equalsIgnoreCase(stu.getCourseIDsEnrolled()[i])){
+			    System.out.print(coursesOffered[j].getCourseTitle() +"\t" );
+			    System.out.println (coursesOffered[j].getCreditHours());
+		}
+	    }
+	}
+    }
+}

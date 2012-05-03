@@ -1,0 +1,8 @@
+public class Test
+{
+	public static void main(String[] args){
+		Integer i = new Integer(1);
+		int j = i +2;
+		System.out.println ("Integer is " + i + "and int is " + j);
+	}
+}

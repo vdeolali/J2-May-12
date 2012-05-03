@@ -1,0 +1,28 @@
+class Customer
+{
+    String firstName;
+    String lastName;
+    double orderValue;
+
+    // Default Constructor
+    Customer()
+    {
+        firstName = "undefined";
+        lastName = "undefined";
+        orderValue = 0.0;
+    }
+
+    // Init Constructor
+    Customer(String firstName, String lastName, double orderValue)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.orderValue = orderValue;
+    }
+
+    String concatName()
+    {
+        String strResult = lastName + ", " + firstName;
+        return strResult;
+    }
+}

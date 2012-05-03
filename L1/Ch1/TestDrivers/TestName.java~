@@ -1,0 +1,8 @@
+class TestName
+{
+    public static void main(String[] args)
+    {
+        Customer cst = new Customer("John", "Cox", 100.0);
+        System.out.println(cst.concatName() + " " + cst.orderValue);
+    }
+}
