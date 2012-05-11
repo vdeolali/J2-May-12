@@ -1,0 +1,39 @@
+
+// -----------Begin: TestReport.java ----------
+class TestReport
+{
+    public static void main(String[] args)
+    {
+        Person[] prs = new Person[5];
+        prs[0] = new Person("John", "Smith");
+        prs[1] = new Customer("Judy", "Miller", 145.0);
+        prs[2] = new Customer("Jane", "Armstrong", 300.0);
+        prs[3] = new Employee("Mike", "Johnson", 1000.0);
+        prs[4] = new Employee("Jennifer", "Peterson", 1200.0);
+        double totSales = 0.0, totSalary = 0.0;
+        System.out.println("---------------------------------------------------");
+        System.out.println(" #    Name    Order Value   Salary");
+        System.out.println("---------------------------------------------------");
+        for (int i = 0; i < prs.length; i++)
+        {
+            if (prs[i] instanceof Customer)
+            {
+                double orderVal = ((Customer)prs[i]).orderValue;
+                totSales += orderVal;
+                System.out.println((i+1) + "    " + prs[i].concatName() + "    " + orderVal);
+            }
+            else if (prs[i] instanceof Employee)
+            {
+                double sal = ((Employee)prs[i]).salary;
+                totSalary += sal;
+                System.out.println((i+1) + "    " + prs[i].concatName() + "    " + sal);
+            }
+            else
+                System.out.println((i+1) + "    " + prs[i].concatName());
+        }
+        System.out.println("---------------------------------------------------");
+        System.out.println(" Totals " + totSales + "    " + totSalary );
+        System.out.println("---------------------------------------------------");
+    }
+}
+// -----------End: TestReport.java ----------

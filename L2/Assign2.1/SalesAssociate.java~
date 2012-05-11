@@ -1,0 +1,9 @@
+public class SalesAssociate extends Employee {
+	private double amountSold
+	private double commissionRate;
+
+	SalesAssociate(double amountSold, double commissionRate, int emplId, String firstName, String lastName, double salary){
+		super (emplId, firstName, lastName, salary)
+		
+	}
+}

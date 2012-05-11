@@ -1,0 +1,9 @@
+public class Manager extends Employee {
+
+	private int[] salesAssociateEmplIds;
+
+	Manager (){
+		super();
+	}
+	
+}

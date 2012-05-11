@@ -1,0 +1,10 @@
+public class Pointers{
+
+	public static void main (String[] args){
+		String str = "Foo";
+		System.out.println ("String is " + str);
+
+	}
+
+	
+}
