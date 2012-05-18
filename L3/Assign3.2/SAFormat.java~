@@ -1,0 +1,6 @@
+public class SAFormat extends EmployeeFormat implements SAInterface {
+	Boolean  salesReport;
+
+
+	v
+}
