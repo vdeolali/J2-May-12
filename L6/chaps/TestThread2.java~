@@ -1,0 +1,5 @@
+public class TestThread2 {
+	public static void main (String[] args){
+		MyThread2 thr = new MyThread2(); 
+	}
+}

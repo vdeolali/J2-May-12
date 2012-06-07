@@ -1,0 +1,57 @@
+import java.util.Scanner;
+import java.io.*;
+
+public class TestAdvt
+{
+    public static void main (String[] args)
+    {
+	    String advert;
+	    /*
+	    Scanner scan = new Scanner(System.in);
+	    System.out.println ("Please enter the advertisement message to be displayed (enter 'n' to exit):\n");
+	    advert = scan.nextLine();
+	    if (advert.equals("") || advert.equals("\n")){
+		    System.out.println ("Return Key" );
+	    }
+
+	    System.out.println ("Displaying " + advert);
+	    byte[] b = new byte[100];
+
+	    try {
+		    System.in.read(b);
+	    } catch (IOException e) {}
+	    
+	    String ad = new String (b);
+	    if (ad.equals("\r") || ad.equals("\n") || ad.equals("")){
+		    System.out.println ("Return Key" );
+	    }
+	    */
+
+	    Advertisement advt= null; 
+	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    while (true){
+		    System.out.println ("Please enter the advertisement message to be displayed (enter 'n' to exit):\n");
+		    try {
+			    advert = br.readLine();
+			    if (advert.equals("\\r") || advert.equals("\\n") || advert.equals("")){
+				    System.out.println ("Return Key" );
+				    advt.interrupt();
+			    }else if (advert.charAt(0) == 'n') {
+				    System.out.println ("Goodbye");
+				    System.exit(0);
+
+			    }else {
+				    System.out.println ("Displaying" + advert);
+				    advt = new Advertisement(advert);
+				    advt.start();
+				    advt.setMessage(advert);
+			    }
+					      
+		    } catch (IOException e) { System.exit(0); }
+	    }
+	  
+	    
+	    
+
+    }
+}

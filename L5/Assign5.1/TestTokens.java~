@@ -1,0 +1,86 @@
+import java.io.*;
+import java.util.StringTokenizer;
+class TestTokens
+{
+    public static void main (String[] args)
+    {
+
+	    File file = new File ("TestTokens.txt");
+	    FileInputStream input  = null;
+	    Reader  reader; 
+
+	    try {
+		    input = new FileInputStream (file);
+		    reader = new BufferedReader( new InputStreamReader (input));
+		    reader.mark(1000);
+		    String str =  ((BufferedReader)(reader)).readLine();
+		    System.out.println ("here" + str); 
+		    while (str != null){
+			    str = ((BufferedReader) (reader)).readLine();
+			    System.out.println ("String "  + str ); 
+		    }
+		    reader.reset();
+		    int data = reader.read();
+		    char datac; 
+		    while (data != -1){
+			    datac = (char) data; 
+			    System.out.println ("Data is " + data + "  " + datac);
+			    data = reader.read();
+		    }
+
+
+
+	    }catch (FileNotFoundException e){
+		    System.out.println ("File " + file.getAbsolutePath() + "Not Found!");
+	    }catch (IOException e){
+		    System.out.println ("IO Exception Found" + e);
+	    }
+
+    }
+	    
+	    /* 
+        try
+        {
+            File tmpFileIn = new File("TestTokens.txt");
+            BufferedReader br = new BufferedReader (new InputStreamReader(
+                    new FileInputStream(tmpFileIn)));
+            String str = null;
+            boolean done = false;
+            System.out.println("Data read from input file:");
+
+            while (!done)
+            {
+                str = br.readLine();
+
+                if (str == null) done = true;
+                else
+                {
+                    String token = null;
+                    StringTokenizer tokenizer = new StringTokenizer(str);
+                    int i = 0;
+                    Employee empl = new Employee();
+
+                    while (tokenizer.hasMoreTokens())
+                    {
+                        token = tokenizer.nextToken();
+                        i++;
+
+                        switch (i)
+                        {
+                        case 1: empl.setFirstName(token); break;
+                        case 2: empl.setLastName(token); break;
+                        case 3: empl.setAge(Integer.parseInt (token)); break;
+                        case 4: empl.setSalary(Double.parseDouble (token)); break;
+                        }
+                    } // while (tokenizer.hasMoreTokens())..
+
+                    System.out.println(empl.getFirstName() + " " + empl.getLastName()
+                                    + " " + empl.getAge() + " " + empl.getSalary());
+                } // if (str == null) ..
+            } // while (!done)..
+            br.close();
+        }
+        catch (IOException e) { System.out.println("error: " + e.getMessage()); }
+    }
+	    */
+}
