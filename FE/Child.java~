@@ -1,0 +1,5 @@
+public class Child extends Parent {
+	// default constructor in Child 
+
+public Child() { System.out.println ("In default contructor of child"); } 
+}
