@@ -1,0 +1,96 @@
+import java.util.List;
+import java.util.Iterator;
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class TestCar{
+    public static void main(String[] args){
+
+	String choice;
+
+	Scanner scan = new Scanner (System.in);
+	CarComparator ccomp = new CarComparator();
+
+	while (true) {
+	    System.out.println ("\n\n\nPlease select report sort type:\n" +
+				"1:By Make\n" +
+				"2:By Model\n"  +
+				"3:By Age\n" +
+				"4:By Miles\n" +
+				"5:By Price\n" +
+				"0:Exit");
+
+	    choice = scan.nextLine();
+	    int key=0;;
+
+	    switch (choice){
+	    case "1":
+		System.out.println ("Make");
+		key=1;
+		ccomp.setSortType(1);
+		break;
+	    case "2":
+		System.out.println ("Modle");
+		key=2;
+		ccomp.setSortType(2);
+		break ;
+	    case "3":
+		System.out.println ("Age");
+		key = 3; 
+		ccomp.setSortType(3);
+		break;
+	    case "4":
+		System.out.println ("Miles");
+		key = 4; 
+		ccomp.setSortType(4);
+		break;
+	    case "5":
+		System.out.println ("Price");
+		key = 5; 
+		ccomp.setSortType(5);
+		break;
+	    case "0":
+		key=0;
+		System.out.println ("Goodbye");
+		System.exit(0); 
+	    }
+				
+	    List<Car> carList = CarUtil.readCarList("cars.txt");
+	    Iterator <Car> it=carList.iterator();
+	    TreeMap<Integer, String>  choiceMap = new TreeMap <Integer, String>();
+
+	    choiceMap.put(new Integer(1), "By Make");
+	    choiceMap.put(new Integer(2), "By Model");
+	    choiceMap.put(new Integer(3), "By Age");
+	    choiceMap.put(new Integer(4), "By Miles");
+	    choiceMap.put(new Integer(5), "By Price");
+	    choiceMap.put(new Integer(0), "GoodBye");
+
+	    System.out.println ("**** BEFORE SORT ****");
+	    System.out.println ("__________________________");
+	    System.out.println ("Make \t Model \t Age \t Miles \t Price");
+	    System.out.println ("__________________________");
+
+	    while (it.hasNext()){
+		Car c = it.next();
+		System.out.println (c.getMake()+ "\t" + c.getModel()+ "\t" + c.getAge()+ "\t" + c.getMiles() + "\t" + c.getPrice());
+
+	    }
+	
+
+	    Collections.sort(carList,  ccomp);
+	    System.out.println ("\n\n**** Car Report   " + choiceMap.get(key)+ "****");
+	    System.out.println ("__________________________");
+	    System.out.println ("Make \t Model \t Age \t Miles \t Price");
+	    System.out.println ("__________________________");
+	    it = carList.iterator();
+	    while (it.hasNext()){
+    	
+		Car c = it.next();
+		System.out.println (c.getMake()+ "\t" + c.getModel()+ "\t" + c.getAge()+ "\t" + c.getMiles() + "\t" + c.getPrice());
+	    }
+	}
+    }
+}
+		

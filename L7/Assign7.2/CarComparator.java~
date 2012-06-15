@@ -1,0 +1,7 @@
+public class CarComparator {
+    int sortType;
+
+    void setSortType(int sortType){
+	this.sortType = sortType;
+    }
+}

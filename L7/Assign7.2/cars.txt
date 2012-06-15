@@ -1,0 +1,7 @@
+Toyota Corolla 4 20000
+Ford Taurus 1 1500
+Honda Accord 5 12000
+Toyota Camry 9 50000
+Honda Civic 7 8000
+Ford Taurus 6 55000
+Toyota Corolla 8 90000

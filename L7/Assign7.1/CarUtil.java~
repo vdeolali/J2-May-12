@@ -1,0 +1,49 @@
+public class CarUtil {
+
+    
+    List <Car> readCarList(String fileName){
+	String line;
+	List <Car> carList = new ArrayList<Car>();
+	Car car = new Car
+	
+	try {
+	    Scanner lineScan = new Scanner(new File("fileName"));
+
+	    while (lineScan.hasNextLine()){
+		line = lineScan.nextLine();
+		Scanner tokScan = new Scanner (line);
+
+		int lex = 1;
+		String make = "", model = "";
+		int age = 0, miles = 0;
+		
+		while (tokScan.hasNext()){
+		    token = tokScan.next();
+
+		    switch (lex){
+		    case 1:
+			make = lex;
+			break;
+		    case 2:
+			model = lex;
+			break;
+		    case 3:
+			age = lex;
+			break;
+		    case 4:
+			miles = lex;
+			break; 
+		    }
+		    lex++;
+		}
+		carList.add(new Car(make, model,age,miles));
+		tokScan.close();
+	    }
+	    lineScan.close();
+	    return(carList);
+	}catch (IOException e){
+	    System.out.println("error: " + e.getMessage());
+	    return (null);
+	}
+    }
+}

@@ -1,0 +1,14 @@
+public class TestCar{
+    public void main(String[] args){
+	List<Car> carList = CarUtil.readCarList(cars.txt);
+
+	Iterator it=carList.iterator();
+
+	while (it.hasNext()){
+	    String v
+	}
+
+	
+    }
+}
+		
